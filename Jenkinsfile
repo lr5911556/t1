@@ -15,9 +15,28 @@ pipeline {
         }
       }
     }
-    stage('') {
+    stage('gethost') {
       steps {
         sh 'hostname'
+      }
+    }
+    stage('cathosts') {
+      parallel {
+        stage('cathosts') {
+          steps {
+            sh 'cat /etc/hosts'
+          }
+        }
+        stage('cat') {
+          steps {
+            sh 'cat /etc/hosts'
+          }
+        }
+      }
+    }
+    stage('') {
+      steps {
+        sh 'python --version'
       }
     }
   }
