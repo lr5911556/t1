@@ -21,22 +21,8 @@ pipeline {
       }
     }
     stage('cathosts') {
-      parallel {
-        stage('cathosts') {
-          steps {
-            sh 'cat /etc/hosts'
-          }
-        }
-        stage('cat') {
-          steps {
-            sh 'cat /etc/hosts'
-          }
-        }
-      }
-    }
-    stage('') {
       steps {
-        sh 'python --version'
+        sh 'cat /etc/hosts'
       }
     }
   }
