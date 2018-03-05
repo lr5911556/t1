@@ -1,9 +1,18 @@
 pipeline {
   agent any
   stages {
-    stage('') {
-      steps {
-        sh 'java -version'
+    stage('t1') {
+      parallel {
+        stage('t1') {
+          steps {
+            sh 'java -version'
+          }
+        }
+        stage('t2') {
+          steps {
+            sh 'echo \'t1\''
+          }
+        }
       }
     }
   }
